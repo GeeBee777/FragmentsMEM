@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CHRONICLE ARCHIVE</title>
+  <style>
+    /* 1. カラーと全体レイアウトの設定 */
+    :root {
+      --gb-darkest: #0f380f;
+      --gb-dark: #306230;
+      --gb-light: #8bac0f;
+      --gb-lightest: #9bbc0f;
+      --max-width: 500px; /* スマホで読みやすい幅 */
+    }
+
+    body {
+      background-color: #0d0d0d;
+      color: #e0e0e0;
+      font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", sans-serif;
+      margin: 0;
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+    }
+
+    /* 2. 年表（タイムライン）ナビゲーション */
+    .timeline-nav {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding: 10px 0 15px 0;
+      margin-bottom: 25px;
+      border-bottom: 2px solid var(--gb-dark);
+    }
+
+    .timeline-btn {
+      background-color: var(--gb-darkest);
+      color: var(--gb-lightest);
+      border: 2px solid var(--gb-light);
+      padding: 8px 14px;
+      font-size: 0.9rem;
+      font-weight: bold;
+      border-radius: 4px;
+      text-decoration: none;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+
+    .timeline-btn:hover {
+      background-color: var(--gb-dark);
+    }
+
+    /* 3. 各出来事（カード）のスタイル */
+    .event-card {
+      background-color: #1a1a1a;
+      border: 2px solid var(--gb-dark);
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 40px;
+    }
+
+    .event-title {
+      font-size: 1.3rem;
+      color: var(--gb-lightest);
+      margin-top: 0;
+      margin-bottom: 12px;
+      border-bottom: 1px dashed var(--gb-dark);
+      padding-bottom: 8px;
+    }
+
+    .event-text {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: #ccc;
+      margin-bottom: 20px;
+    }
+
+    /* 4. ★最重要：ドット絵画像を綺麗に表示する設定 */
+    .pixel-art {
+      width: 100%;            /* 画面横幅いっぱいに拡大 */
+      height: auto;
+      display: block;
+      margin-bottom: 15px;
+      
+      /* ドット絵がスマホでぼやけるのを防ぐ必須プロパティ */
+      image-rendering: pixelated;
+      image-rendering: crisp-edges;
+    }
+
+    /* 縦長テキストCGの枠設定（必要に応じてスクロール化） */
+    .text-cg-container {
+      width: 100%;
+      /* 縦長画像を枠内でスクロールさせたい場合はコメントアウトを解除 */
+      /* max-height: 60vh; overflow-y: auto; border: 1px solid var(--gb-dark); */
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    
+    <!-- 年表（タップすると該当の出来事にジャンプ） -->
+    <nav class="timeline-nav">
+      <a href="#event-2036" class="timeline-btn">2036年：欧州AI</a>
+      <a href="#event-2040" class="timeline-btn">2040年：〇〇事件</a>
+      <a href="#event-2045" class="timeline-btn">2045年：〇〇開通</a>
+    </nav>
+
+    <!-- 出来事 1 -->
+    <article id="event-2036" class="event-card">
+      <h2 class="event-title">2036年：欧州AI統合委員会 設立</h2>
+      
+      <p class="event-text">
+        欧州連合は次世代AIに関する共通原則および政策的方向性の調整を目的とした独立評議機関「欧州AI統合評議会」を設立した。初代議長にはエラリア・ヴォス氏が選出された。
+      </p>
+
+      <!-- 1枚目：イラストCG -->
+      <img src="A04_illustration.png" alt="欧州AI統合委員会 イラスト" class="pixel-art">
+
+      <!-- 2枚目：テキストCG（イラストと同幅） -->
+      <div class="text-cg-container">
+        <img src="A04_center.png" alt="ブリュッセル・タイムズ 記事CG" class="pixel-art">
+      </div>
+    </article>
+
+    <!-- 出来事 2（追加する場合） -->
+    <article id="event-2040" class="event-card">
+      <h2 class="event-title">2040年：次の出来事タイトル</h2>
+      <p class="event-text">説明テキスト...</p>
+      <!-- 画像などを配置 -->
+    </article>
+
+  </div>
+
+</body>
+</html>
